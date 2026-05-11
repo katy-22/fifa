@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- SEO Meta Tags -->
+    <title>FIFA World Cup 2026 | Claim Your $1,000 Ticket Credit</title>
+    <meta name="description" content="Official 2026 Fan Rewards Program. Claim a $1,000 credit for FIFA World Cup match tickets. Limited spots for the North American tournament.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        :root {
+            --fifa-navy: #020617;
+            --fifa-gold: #d4af37;
+            --fifa-cyan: #0ea5e9;
+            --fifa-accent: #10b981;
+        }
+
+        body {
+            background-color: var(--fifa-navy);
+            background-image: 
+                radial-gradient(circle at top right, rgba(14, 165, 233, 0.15), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.1), transparent 40%);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+
+        /* Dynamic Grass Pattern Background */
+        .pitch-pattern {
+            background-image: repeating-linear-gradient(
+                90deg,
+                rgba(255,255,255,0.02) 0px,
+                rgba(255,255,255,0.02) 1px,
+                transparent 1px,
+                transparent 40px
+            );
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #f97316 100%);
+            color: #000;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-gold:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .ticket-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ticket-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--fifa-cyan), var(--fifa-gold), var(--fifa-accent));
+        }
+
+        /* Scanning Animation */
+        .scanner-line {
+            height: 2px;
+            background: var(--fifa-cyan);
+            box-shadow: 0 0 15px var(--fifa-cyan);
+            position: absolute;
+            width: 100%;
+            top: 0;
+            animation: scan 2s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0% }
+            100% { top: 100% }
+        }
+
+        .wheel {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(14, 165, 233, 0.2);
+            border-top: 3px solid var(--fifa-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .live-badge {
+            background: #ef4444;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="pitch-pattern min-h-screen">
+
+    <!-- Top Navigation -->
+    <nav class="border-b border-white/10 bg-slate-950/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-white rounded-sm flex items-center justify-center">
+                    <svg class="w-6 h-6 text-blue-900" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z"/></svg>
+                </div>
+                <span class="font-oswald text-xl tracking-tighter uppercase font-bold">FIFA WORLD CUP <span class="text-sky-500">2026</span></span>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="live-badge w-2 h-2 rounded-full"></div>
+                <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Portal Live</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Content -->
+    <main class="container mx-auto px-6 pt-12 pb-24 max-w-lg">
+        
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-oswald font-bold leading-none mb-4 uppercase italic">Score Your <span class="text-sky-400">Seats</span></h1>
+            <p class="text-slate-400 text-sm font-medium">Join the 2026 Fan Experience Program. Claim a $1,000 credit voucher for World Cup match tickets across USA, Mexico, and Canada.</p>
+        </div>
+
+        <!-- Ticket Voucher Card -->
+        <div class="ticket-card shadow-2xl">
+            <div class="relative h-56 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=800" alt="Stadium" class="w-full h-full object-cover opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
+                
+                <!-- Ticket Overlay Info -->
+                <div class="absolute bottom-4 left-6">
+                    <div class="text-[10px] font-bold text-sky-400 uppercase tracking-widest mb-1">Official Voucher</div>
+                    <div class="text-3xl font-oswald font-bold italic">$1,000 USD CREDIT</div>
+                </div>
+                <div class="absolute top-4 right-6 bg-sky-500/20 backdrop-blur-md border border-sky-500/50 px-3 py-1 rounded text-[10px] font-bold">
+                    NORTH AMERICA 2026
+                </div>
+            </div>
+
+            <div class="p-8">
+                <div class="space-y-4 mb-8">
+                    <div class="flex justify-between items-center text-xs border-b border-white/5 pb-3">
+                        <span class="text-slate-400 uppercase tracking-widest font-semibold">Match Access</span>
+                        <span class="text-white font-bold">All Categories (1-4)</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs border-b border-white/5 pb-3">
+                        <span class="text-slate-400 uppercase tracking-widest font-semibold">Availability</span>
+                        <span class="text-emerald-400 font-bold">In Stock (14 Units)</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs border-b border-white/5 pb-3">
+                        <span class="text-slate-400 uppercase tracking-widest font-semibold">Expiry</span>
+                        <span class="text-white font-bold">Dec 2026</span>
+                    </div>
+                </div>
+
+                <button onclick="openModal()" class="btn-gold w-full py-5 rounded-xl text-lg flex items-center justify-center gap-2">
+                    Claim Ticket Credit
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="mt-12 flex justify-center gap-8 opacity-40 grayscale">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Visa_2021.svg" class="h-4" alt="Visa">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-6" alt="Mastercard">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Coca-Cola_logo_2013.svg" class="h-5" alt="Coca Cola">
+        </div>
+    </main>
+
+    <!-- Modal Flow -->
+    <div id="offerModal" class="fixed inset-0 z-[100] bg-slate-950/95 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-slate-900 w-full max-w-md rounded-3xl border border-white/10 relative overflow-hidden shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-500 hover:text-white z-10">✕</button>
+            
+            <div class="p-8">
+                <!-- Step 1: Processing -->
+                <div id="step-loading" class="text-center py-12">
+                    <div class="wheel mx-auto mb-8"></div>
+                    <h3 class="text-2xl font-oswald font-bold mb-3 uppercase tracking-tight" id="statusText">Connecting...</h3>
+                    <p class="text-slate-400 text-xs" id="statusSubtext">Accessing the FIFA Fan Rewards Database.</p>
+                    
+                    <div class="w-full bg-white/5 h-1.5 mt-10 rounded-full overflow-hidden">
+                        <div id="progressBar" class="bg-sky-500 h-full w-0 transition-all duration-500"></div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Verification -->
+                <div id="step-final" class="hidden text-center">
+                    <div class="w-20 h-20 bg-sky-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-sky-500/20">
+                        <svg class="w-10 h-10 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-3xl font-oswald font-bold mb-4 uppercase italic">Voucher Reserved!</h3>
+                    <p class="text-slate-400 text-sm mb-10 px-4 leading-relaxed">Your $1,000 credit has been allocated. Please complete the quick bot-check to reveal your unique reservation code.</p>
+                    
+                    <div class="relative p-6 mb-10 rounded-2xl bg-black/40 border border-white/5">
+                        <div class="scanner-line"></div>
+                        <div class="text-sky-500 font-mono text-xl font-bold tracking-[0.3em] blur-[6px]">FIFA2026-XXXX</div>
+                    </div>
+
+                    <button onclick="redirectToLocker()" class="btn-gold w-full py-5 rounded-xl flex items-center justify-center gap-3">
+                        Unlock My Code Now
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </button>
+                    
+                    <p class="text-[10px] text-slate-500 mt-6 uppercase font-bold tracking-widest">Single Use Only • Verification Required</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="toast" class="fixed bottom-8 right-8 bg-white text-black px-6 py-4 rounded-xl text-xs font-bold shadow-2xl opacity-0 transform translate-y-10 transition-all duration-700 pointer-events-none z-[200] flex items-center gap-4">
+        <div class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></div>
+        <span>New Voucher Claimed: Vancouver, BC</span>
+    </div>
+
+    <script>
+        // Update this to your Content Locker link
+        const lockerLink = "https://giftclick.org/aff_c?offer_id=4510&aff_id=178108";
+
+        function openModal() {
+            document.getElementById('offerModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            startProcess();
+        }
+
+        function closeModal() {
+            document.getElementById('offerModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function startProcess() {
+            const statusTexts = [
+                { main: "Allocating Server...", sub: "Routing through official 2026 portal." },
+                { main: "Checking Quota...", sub: "Scanning regional ticket availability." },
+                { main: "Generating ID...", sub: "Securing your unique $1,000 credit." }
+            ];
+            
+            let step = 0;
+            const interval = setInterval(() => {
+                if (step < statusTexts.length) {
+                    document.getElementById('statusText').innerText = statusTexts[step].main;
+                    document.getElementById('statusSubtext').innerText = statusTexts[step].sub;
+                    document.getElementById('progressBar').style.width = ((step + 1) * 33) + "%";
+                    step++;
+                } else {
+                    clearInterval(interval);
+                    showFinalStep();
+                }
+            }, 1000);
+        }
+
+        function showFinalStep() {
+            document.getElementById('step-loading').classList.add('hidden');
+            document.getElementById('step-final').classList.remove('hidden');
+            gsap.from("#step-final", { opacity: 0, scale: 0.9, duration: 0.4 });
+        }
+
+        function redirectToLocker() {
+            window.location.href = lockerLink;
+        }
+
+        // Live Claims Simulation
+        const locations = ["Mexico City, MX", "Dallas, TX", "Los Angeles, CA", "Toronto, ON", "Miami, FL", "Atlanta, GA"];
+        function showToast() {
+            const toast = document.getElementById('toast');
+            const loc = locations[Math.floor(Math.random() * locations.length)];
+            toast.querySelector('span').innerText = `Voucher Claimed: ${loc}`;
+            
+            toast.style.opacity = "1";
+            toast.style.transform = "translateY(0)";
+            
+            setTimeout(() => {
+                toast.style.opacity = "0";
+                toast.style.transform = "translateY(10px)";
+            }, 4000);
+        }
+
+        setInterval(showToast, 12000);
+        setTimeout(showToast, 4000);
+    </script>
+</body>
+</html>
