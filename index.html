@@ -3,297 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <!-- SEO Meta Tags -->
-    <title>FIFA World Cup 2026 | Claim Your $1,000 Ticket Credit</title>
-    <meta name="description" content="Official 2026 Fan Rewards Program. Claim a $1,000 credit for FIFA World Cup match tickets. Limited spots for the North American tournament.">
+    <title>Champs Sports Rewards | Score Your $750 Gift Card</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <style>
         :root {
-            --fifa-navy: #020617;
-            --fifa-gold: #d4af37;
-            --fifa-cyan: #0ea5e9;
-            --fifa-accent: #10b981;
+            --champs-blue: #00263E;
+            --champs-red: #E31837;
         }
 
         body {
-            background-color: var(--fifa-navy);
-            background-image: 
-                radial-gradient(circle at top right, rgba(14, 165, 233, 0.15), transparent 40%),
-                radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.1), transparent 40%);
-            color: #ffffff;
             font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
+            background-color: #f8f9fa;
+            color: var(--champs-blue);
         }
 
         .font-oswald { font-family: 'Oswald', sans-serif; }
 
-        /* Dynamic Grass Pattern Background */
-        .pitch-pattern {
-            background-image: repeating-linear-gradient(
-                90deg,
-                rgba(255,255,255,0.02) 0px,
-                rgba(255,255,255,0.02) 1px,
-                transparent 1px,
-                transparent 40px
-            );
-        }
-
-        .btn-gold {
-            background: linear-gradient(135deg, #d4af37 0%, #f97316 100%);
-            color: #000;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        .btn-champs {
+            background-color: var(--champs-red);
+            color: white;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 0 #b3122b;
         }
 
-        .btn-gold:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+        .btn-champs:active {
+            transform: translateY(3px);
+            box-shadow: none;
         }
 
-        .ticket-card {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(14, 165, 233, 0.3);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
+        .step-card {
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .step-card.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .option-select {
+            @apply w-full text-left p-4 border-2 border-gray-100 rounded-xl mb-3 transition-all font-bold uppercase text-sm flex justify-between items-center hover:border-blue-900 hover:bg-blue-50;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--champs-red);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .shimmer-btn {
             position: relative;
             overflow: hidden;
         }
 
-        .ticket-card::before {
+        .shimmer-btn::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--fifa-cyan), var(--fifa-gold), var(--fifa-accent));
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            animation: shimmerEffect 3s infinite;
         }
 
-        /* Scanning Animation */
-        .scanner-line {
-            height: 2px;
-            background: var(--fifa-cyan);
-            box-shadow: 0 0 15px var(--fifa-cyan);
-            position: absolute;
-            width: 100%;
-            top: 0;
-            animation: scan 2s linear infinite;
-        }
-        @keyframes scan {
-            0% { top: 0% }
-            100% { top: 100% }
-        }
-
-        .wheel {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(14, 165, 233, 0.2);
-            border-top: 3px solid var(--fifa-gold);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-        .live-badge {
-            background: #ef4444;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+        @keyframes shimmerEffect {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
     </style>
 </head>
-<body class="pitch-pattern min-h-screen">
+<body class="antialiased">
 
-    <!-- Top Navigation -->
-    <nav class="border-b border-white/10 bg-slate-950/50 backdrop-blur-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-white rounded-sm flex items-center justify-center">
-                    <svg class="w-6 h-6 text-blue-900" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z"/></svg>
-                </div>
-                <span class="font-oswald text-xl tracking-tighter uppercase font-bold">FIFA WORLD CUP <span class="text-sky-500">2026</span></span>
+    <!-- Top Info Bar -->
+    <div class="bg-black text-white text-[10px] py-2 px-4 text-center font-bold tracking-[0.2em] uppercase">
+        Official Champs Sports Rewards Portal &bull; 2026
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b-4 border-red-600 py-4 px-6 sticky top-0 z-50">
+        <div class="max-w-xl mx-auto flex justify-between items-center">
+            <div class="font-oswald text-2xl font-bold italic tracking-tighter">
+                CHAMPS <span class="text-red-600">SPORTS</span>
             </div>
             <div class="flex items-center gap-2">
-                <div class="live-badge w-2 h-2 rounded-full"></div>
-                <span class="text-[10px] font-bold uppercase tracking-widest opacity-80">Portal Live</span>
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
+                <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Active Portal</span>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Content -->
-    <main class="container mx-auto px-6 pt-12 pb-24 max-w-lg">
+    <main class="max-w-xl mx-auto px-6 pt-10 pb-24">
         
-        <div class="text-center mb-12">
-            <h1 class="text-5xl font-oswald font-bold leading-none mb-4 uppercase italic">Score Your <span class="text-sky-400">Seats</span></h1>
-            <p class="text-slate-400 text-sm font-medium">Join the 2026 Fan Experience Program. Claim a $1,000 credit voucher for World Cup match tickets across USA, Mexico, and Canada.</p>
+        <!-- Header -->
+        <div id="hero-area" class="text-center mb-8">
+            <h1 class="font-oswald text-4xl font-bold uppercase italic leading-none mb-3">
+                Claim Your <span class="text-red-600">$750</span> <br> Shopping Credit
+            </h1>
+            <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">
+                Sneakerhead Rewards Program
+            </p>
         </div>
 
-        <!-- Ticket Voucher Card -->
-        <div class="ticket-card shadow-2xl">
-            <div class="relative h-56 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=800" alt="Stadium" class="w-full h-full object-cover opacity-60">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
-                
-                <!-- Ticket Overlay Info -->
-                <div class="absolute bottom-4 left-6">
-                    <div class="text-[10px] font-bold text-sky-400 uppercase tracking-widest mb-1">Official Voucher</div>
-                    <div class="text-3xl font-oswald font-bold italic">$1,000 USD CREDIT</div>
-                </div>
-                <div class="absolute top-4 right-6 bg-sky-500/20 backdrop-blur-md border border-sky-500/50 px-3 py-1 rounded text-[10px] font-bold">
-                    NORTH AMERICA 2026
-                </div>
+        <!-- Main Card -->
+        <div class="bg-white rounded-[2.5rem] p-8 shadow-2xl border border-gray-100">
+            <div class="h-1.5 w-full bg-gray-100 rounded-full mb-8 overflow-hidden">
+                <div id="progressFill" class="progress-fill"></div>
             </div>
 
-            <div class="p-8">
-                <div class="space-y-4 mb-8">
-                    <div class="flex justify-between items-center text-xs border-b border-white/5 pb-3">
-                        <span class="text-slate-400 uppercase tracking-widest font-semibold">Match Access</span>
-                        <span class="text-white font-bold">All Categories (1-4)</span>
-                    </div>
-                    <div class="flex justify-between items-center text-xs border-b border-white/5 pb-3">
-                        <span class="text-slate-400 uppercase tracking-widest font-semibold">Availability</span>
-                        <span class="text-emerald-400 font-bold">In Stock (14 Units)</span>
-                    </div>
-                    <div class="flex justify-between items-center text-xs border-b border-white/5 pb-3">
-                        <span class="text-slate-400 uppercase tracking-widest font-semibold">Expiry</span>
-                        <span class="text-white font-bold">Dec 2026</span>
-                    </div>
+            <!-- Intro -->
+            <div id="step0" class="step-card active">
+                <div class="mb-6 rounded-2xl overflow-hidden border-2 border-gray-50">
+                    <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=600&auto=format&fit=crop" class="w-full h-44 object-cover">
                 </div>
-
-                <button onclick="openModal()" class="btn-gold w-full py-5 rounded-xl text-lg flex items-center justify-center gap-2">
-                    Claim Ticket Credit
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                <h3 class="text-xl font-bold mb-4 text-center">Ready to upgrade your rotation?</h3>
+                <p class="text-gray-500 text-sm mb-8 text-center leading-relaxed">
+                    Check your eligibility for the $750 Champs Sports reward. Available for testers and sneaker fans for a limited time.
+                </p>
+                <button onclick="nextStep(1, 25)" class="btn-champs w-full py-5 rounded-2xl text-xl shimmer-btn">
+                    Start Verification
                 </button>
             </div>
-        </div>
 
-        <!-- Trust Badges -->
-        <div class="mt-12 flex justify-center gap-8 opacity-40 grayscale">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Visa_2021.svg" class="h-4" alt="Visa">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-6" alt="Mastercard">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Coca-Cola_logo_2013.svg" class="h-5" alt="Coca Cola">
-        </div>
-    </main>
+            <!-- Quiz Step 1 -->
+            <div id="step1" class="step-card">
+                <h3 class="text-xl font-bold mb-8 text-center">Which footwear brand do you prefer?</h3>
+                <button onclick="nextStep(2, 50)" class="option-select">Nike / Jordan <span>👟</span></button>
+                <button onclick="nextStep(2, 50)" class="option-select">Adidas / Yeezy <span>👟</span></button>
+                <button onclick="nextStep(2, 50)" class="option-select">New Balance / Others <span>👟</span></button>
+            </div>
 
-    <!-- Modal Flow -->
-    <div id="offerModal" class="fixed inset-0 z-[100] bg-slate-950/95 hidden flex items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-slate-900 w-full max-w-md rounded-3xl border border-white/10 relative overflow-hidden shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-500 hover:text-white z-10">✕</button>
-            
-            <div class="p-8">
-                <!-- Step 1: Processing -->
-                <div id="step-loading" class="text-center py-12">
-                    <div class="wheel mx-auto mb-8"></div>
-                    <h3 class="text-2xl font-oswald font-bold mb-3 uppercase tracking-tight" id="statusText">Connecting...</h3>
-                    <p class="text-slate-400 text-xs" id="statusSubtext">Accessing the FIFA Fan Rewards Database.</p>
-                    
-                    <div class="w-full bg-white/5 h-1.5 mt-10 rounded-full overflow-hidden">
-                        <div id="progressBar" class="bg-sky-500 h-full w-0 transition-all duration-500"></div>
-                    </div>
+            <!-- Quiz Step 2 -->
+            <div id="step2" class="step-card">
+                <h3 class="text-xl font-bold mb-8 text-center">How often do you shop at Champs?</h3>
+                <button onclick="nextStep(3, 75)" class="option-select">Weekly</button>
+                <button onclick="nextStep(3, 75)" class="option-select">Once a month</button>
+                <button onclick="nextStep(3, 75)" class="option-select">Only on special drops</button>
+            </div>
+
+            <!-- Quiz Step 3 -->
+            <div id="step3" class="step-card">
+                <h3 class="text-xl font-bold mb-8 text-center">Confirm your residency status:</h3>
+                <button onclick="processFinal()" class="option-select">USA / Canada</button>
+                <button onclick="processFinal()" class="option-select">Australia / New Zealand</button>
+                <button onclick="processFinal()" class="option-select">United Kingdom</button>
+            </div>
+
+            <!-- Final Step -->
+            <div id="stepFinal" class="step-card text-center">
+                <div class="w-20 h-20 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                 </div>
-
-                <!-- Step 2: Verification -->
-                <div id="step-final" class="hidden text-center">
-                    <div class="w-20 h-20 bg-sky-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-sky-500/20">
-                        <svg class="w-10 h-10 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-3xl font-oswald font-bold mb-4 uppercase italic">Voucher Reserved!</h3>
-                    <p class="text-slate-400 text-sm mb-10 px-4 leading-relaxed">Your $1,000 credit has been allocated. Please complete the quick bot-check to reveal your unique reservation code.</p>
-                    
-                    <div class="relative p-6 mb-10 rounded-2xl bg-black/40 border border-white/5">
-                        <div class="scanner-line"></div>
-                        <div class="text-sky-500 font-mono text-xl font-bold tracking-[0.3em] blur-[6px]">FIFA2026-XXXX</div>
-                    </div>
-
-                    <button onclick="redirectToLocker()" class="btn-gold w-full py-5 rounded-xl flex items-center justify-center gap-3">
-                        Unlock My Code Now
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                    </button>
-                    
-                    <p class="text-[10px] text-slate-500 mt-6 uppercase font-bold tracking-widest">Single Use Only • Verification Required</p>
-                </div>
+                <h2 class="text-3xl font-oswald font-bold uppercase italic mb-2">Reserved</h2>
+                <p class="text-gray-500 text-sm mb-10 leading-relaxed px-4">
+                    Congratulations! Your <b>$750 Shopping Credit</b> is ready to be unlocked. Complete the final secure verification step below.
+                </p>
+                
+                <!-- NEW LINK UPDATED HERE -->
+                <a href="https://trksy.org/aff_c?offer_id=834&aff_id=178108" class="btn-champs w-full py-5 rounded-2xl text-xl flex items-center justify-center gap-3 shadow-xl">
+                    UNLOCK $750 VOUCHER
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                </a>
+                
+                <p class="mt-6 text-[10px] text-gray-400 uppercase font-black tracking-widest">
+                    Verification Secure &bull; No Fees Required
+                </p>
             </div>
         </div>
-    </div>
 
-    <!-- Notification -->
-    <div id="toast" class="fixed bottom-8 right-8 bg-white text-black px-6 py-4 rounded-xl text-xs font-bold shadow-2xl opacity-0 transform translate-y-10 transition-all duration-700 pointer-events-none z-[200] flex items-center gap-4">
-        <div class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></div>
-        <span>New Voucher Claimed: Vancouver, BC</span>
+        <p class="mt-16 text-[9px] text-gray-400 text-center leading-relaxed max-w-xs mx-auto uppercase tracking-tighter">
+            Champs Sports is a trademark of Foot Locker Retail, Inc. This rewards program is an independent sweepstakes not directly affiliated with the brand.
+        </p>
+    </main>
+
+    <!-- Social Proof Toast -->
+    <div id="toast" class="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-80 bg-white border-l-4 border-red-600 shadow-2xl p-4 rounded-xl opacity-0 transform translate-y-10 transition-all duration-500 flex items-center gap-4 z-[100]">
+        <div class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-blue-900">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
+        </div>
+        <div>
+            <p class="text-[9px] font-bold text-gray-400 uppercase">Recent Activity</p>
+            <p class="text-xs font-bold" id="toast-text">User qualified for $750 reward</p>
+        </div>
     </div>
 
     <script>
-        // Update this to your Content Locker link
-        const lockerLink = "https://giftclick.org/aff_c?offer_id=4510&aff_id=178108";
-
-        function openModal() {
-            document.getElementById('offerModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            startProcess();
+        function nextStep(step, progress) {
+            document.querySelectorAll('.step-card').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + step).classList.add('active');
+            document.getElementById('progressFill').style.width = progress + '%';
+            gsap.from("#step" + step, { opacity: 0, x: 20, duration: 0.4 });
         }
 
-        function closeModal() {
-            document.getElementById('offerModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        function startProcess() {
-            const statusTexts = [
-                { main: "Allocating Server...", sub: "Routing through official 2026 portal." },
-                { main: "Checking Quota...", sub: "Scanning regional ticket availability." },
-                { main: "Generating ID...", sub: "Securing your unique $1,000 credit." }
-            ];
+        function processFinal() {
+            document.querySelectorAll('.step-card').forEach(s => s.classList.remove('active'));
+            document.getElementById('progressFill').style.width = '100%';
             
-            let step = 0;
-            const interval = setInterval(() => {
-                if (step < statusTexts.length) {
-                    document.getElementById('statusText').innerText = statusTexts[step].main;
-                    document.getElementById('statusSubtext').innerText = statusTexts[step].sub;
-                    document.getElementById('progressBar').style.width = ((step + 1) * 33) + "%";
-                    step++;
-                } else {
-                    clearInterval(interval);
-                    showFinalStep();
-                }
-            }, 1000);
+            const hero = document.getElementById('hero-area');
+            hero.innerHTML = `
+                <div class="py-10">
+                    <div class="w-12 h-12 border-4 border-red-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Verifying Submission...</p>
+                </div>
+            `;
+
+            setTimeout(() => {
+                hero.innerHTML = `
+                    <h1 class="font-oswald text-4xl font-bold uppercase italic text-emerald-600 mb-1">Qualified</h1>
+                    <p class="text-gray-400 text-[10px] font-bold uppercase tracking-widest">ID: #REWARD-750-AU</p>
+                `;
+                document.getElementById('stepFinal').classList.add('active');
+                gsap.from("#stepFinal", { scale: 0.95, opacity: 0, duration: 0.5 });
+            }, 1800);
         }
 
-        function showFinalStep() {
-            document.getElementById('step-loading').classList.add('hidden');
-            document.getElementById('step-final').classList.remove('hidden');
-            gsap.from("#step-final", { opacity: 0, scale: 0.9, duration: 0.4 });
-        }
-
-        function redirectToLocker() {
-            window.location.href = lockerLink;
-        }
-
-        // Live Claims Simulation
-        const locations = ["Mexico City, MX", "Dallas, TX", "Los Angeles, CA", "Toronto, ON", "Miami, FL", "Atlanta, GA"];
+        // Live Claims
+        const cities = ["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "London", "Toronto", "New York"];
         function showToast() {
             const toast = document.getElementById('toast');
-            const loc = locations[Math.floor(Math.random() * locations.length)];
-            toast.querySelector('span').innerText = `Voucher Claimed: ${loc}`;
-            
+            const city = cities[Math.floor(Math.random() * cities.length)];
+            document.getElementById('toast-text').innerText = `Successful qualification from ${city}`;
             toast.style.opacity = "1";
             toast.style.transform = "translateY(0)";
-            
             setTimeout(() => {
                 toast.style.opacity = "0";
                 toast.style.transform = "translateY(10px)";
             }, 4000);
         }
-
-        setInterval(showToast, 12000);
-        setTimeout(showToast, 4000);
+        setInterval(showToast, 15000);
+        setTimeout(showToast, 5000);
     </script>
 </body>
 </html>
