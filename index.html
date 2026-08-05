@@ -3,219 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Exclusively Yours | Pandora Luxury Invitation</title>
+    <title>ZARA UK | Exclusive £750 Fashion Voucher</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,700;1,700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <style>
         :root {
-            --pd-pink: #fce4ec;
-            --pd-gold: #d4af37;
-            --pd-black: #1a1a1a;
+            --soft-blush: #fff0f3;
+            --rose-accent: #ff85a2;
+            --zara-black: #000000;
         }
 
         body {
-            background-color: #fafafa;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--pd-black);
+            background-color: var(--soft-blush);
+            font-family: 'Inter', sans-serif;
+            color: var(--zara-black);
+            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
-        .font-serif-lux { font-family: 'Cormorant Garamond', serif; }
+        .font-editorial { font-family: 'Bodoni Moda', serif; }
 
-        /* Hero Background with High-End Image */
-        .hero-bg {
-            background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1500&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            height: 40vh;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        /* Unique Aesthetic Card */
+        .pink-glass-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid #ffffff;
+            box-shadow: 0 40px 100px -20px rgba(255, 133, 162, 0.15);
+            border-radius: 20px;
         }
 
-        .main-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.15);
-            transform: translateY(-80px);
-        }
-
-        .btn-luxury {
-            background: var(--pd-black);
+        /* Large High-Contrast CTA */
+        .btn-zara {
+            background-color: var(--zara-black);
             color: white;
-            letter-spacing: 4px;
-            font-weight: 700;
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
             text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
+            letter-spacing: 4px;
+            font-weight: 800;
+            padding: 24px;
+            width: 100%;
             display: block;
             text-align: center;
+            border-radius: 12px;
+            font-size: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        .btn-luxury:hover {
-            background: #d4af37;
-            transform: scale(1.02);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        .btn-zara:active { transform: scale(0.96); }
+
+        /* 1-2-3 Manage Expectations Guide */
+        .step-container {
+            background: #fffafa;
+            border: 1px solid #ffe4e9;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 15px;
         }
 
-        .step-hidden { display: none; }
-        .step-active { display: block; animation: luxFade 0.8s forwards; }
+        .step-circle {
+            font-family: 'Bodoni Moda', serif;
+            background: var(--zara-black);
+            color: white;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
 
-        @keyframes luxFade {
-            from { opacity: 0; transform: translateY(30px); }
+        .step-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: #4b5563;
+        }
+
+        .step-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .step-row:last-child { margin-bottom: 0; }
+
+        .step-section { display: none; }
+        .step-section.active { display: block; animation: softFade 0.7s forwards; }
+
+        @keyframes softFade {
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .crown-mark {
-            font-size: 10px;
-            letter-spacing: 5px;
-            opacity: 0.4;
-            display: block;
-            margin-bottom: 10px;
+        .progress-fill {
+            height: 100%;
+            background: var(--rose-accent);
+            width: 0%;
+            transition: width 0.6s ease;
         }
-
-        .image-reveal {
-            transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-        .main-card:hover .image-reveal { transform: scale(1.05); }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Hero Header -->
-    <div class="hero-bg"></div>
-
-    <!-- Official Branding -->
-    <nav class="absolute top-0 w-full py-8 text-center z-10">
-        <div class="font-serif-lux text-3xl tracking-[0.4em] uppercase font-bold">PANDORA</div>
+    <!-- Brand Navbar -->
+    <nav class="py-6 text-center border-b border-pink-100 bg-white/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="text-3xl tracking-[0.7em] font-black uppercase">ZARA</div>
     </nav>
 
-    <main class="max-w-xl mx-auto px-6">
-        <div class="main-card p-8 md:p-14 text-center rounded-sm">
-            
-            <div id="step-container">
-                <!-- Welcome Step -->
-                <div id="step0" class="step-active">
-                    <span class="crown-mark font-bold uppercase">Private Invitation</span>
-                    <h1 class="font-serif-lux text-4xl md:text-5xl italic font-light mb-6">A Gift For Your <br> <span class="font-bold not-italic tracking-tighter text-5xl">Moments</span></h1>
-                    
-                    <div class="relative overflow-hidden mb-8 h-48">
-                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=600&auto=format&fit=crop" class="image-reveal w-full h-full object-cover">
-                    </div>
+    <main class="max-w-xl mx-auto px-5 pt-6 pb-24">
+        
+        <div class="pink-glass-card p-6 md:p-12 relative overflow-hidden">
+            <div class="h-1 w-full bg-gray-100 mb-8 overflow-hidden">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
 
-                    <p class="text-gray-400 text-sm font-light mb-10 leading-relaxed italic">
-                        You have been selected to experience our 2026 Rewards Collection. Access a <b>$500 Pandora credit</b> to curate your own jewelry story.
-                    </p>
-
-                    <button onclick="nextStep(1)" class="btn-luxury w-full py-5 text-[10px]">
-                        Open Your Gift
-                    </button>
+            <!-- Step 0: Main Screen -->
+            <div id="step0" class="step-section active text-center">
+                <h1 class="font-editorial text-4xl italic mb-6 leading-tight">Claim Your <span class="not-italic font-bold text-pink-500">£750.00</span> <br> Fashion Invitation</h1>
+                
+                <!-- NEW HIGH-FASHION IMAGE -->
+                <div class="mb-4 overflow-hidden shadow-lg rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1537832816519-689ad163238b?q=80&w=800&auto=format&fit=crop" class="w-full h-64 object-cover" alt="Fashion Editorial Zara">
                 </div>
 
-                <!-- Step 1: Stylist Question -->
-                <div id="step1" class="step-hidden">
-                    <h3 class="font-serif-lux text-3xl italic mb-10">Choose your metal finish</h3>
+                <!-- Strategic 1-2-3 Guide (Managing Expectations) -->
+                <div class="step-container mb-8 text-left">
+                    <p class="text-[10px] font-black uppercase tracking-widest text-pink-400 mb-4 italic text-center">3 Simple Steps to Claim:</p>
+                    <div class="step-row">
+                        <div class="step-circle">1</div>
+                        <span class="step-text">Verify your UK eligibility below.</span>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-circle">2</div>
+                        <span class="step-text">Complete 3 quick fashion tasks.</span>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-circle">3</div>
+                        <span class="step-text">Unlock your £750 code instantly.</span>
+                    </div>
+                </div>
+
+                <!-- Big Action Button -->
+                <button onclick="nextStep(1, 50)" class="btn-zara">
+                    Check Eligibility & Claim £750
+                </button>
+                
+                <p class="mt-6 text-[10px] text-pink-300 uppercase tracking-widest font-bold">
+                    Official 2026 Rewards • Limited Spots
+                </p>
+            </div>
+
+            <!-- Step 1: Engagement Survey -->
+            <div id="step1" class="step-section">
+                <div class="text-center">
+                    <h3 class="font-editorial text-3xl italic mb-12">Select your style aesthetic</h3>
                     <div class="space-y-4">
-                        <button onclick="nextStep(2)" class="w-full py-4 border border-gray-100 hover:border-pink-200 hover:bg-pink-50 transition-all font-bold text-[10px] uppercase tracking-widest italic">Sterling Silver</button>
-                        <button onclick="nextStep(2)" class="w-full py-4 border border-gray-100 hover:border-pink-200 hover:bg-pink-50 transition-all font-bold text-[10px] uppercase tracking-widest italic">Pandora Rose Gold</button>
-                        <button onclick="nextStep(2)" class="w-full py-4 border border-gray-100 hover:border-pink-200 hover:bg-pink-50 transition-all font-bold text-[10px] uppercase tracking-widest italic">14k Gold Plated</button>
-                    </div>
-                </div>
-
-                <!-- Final Verification Step -->
-                <div id="stepFinal" class="step-hidden">
-                    <div class="mb-8">
-                        <div class="text-xs uppercase tracking-widest font-bold text-emerald-600 mb-2">Reservation Approved</div>
-                        <div class="h-px w-20 bg-emerald-200 mx-auto"></div>
-                    </div>
-                    
-                    <h2 class="font-serif-lux text-4xl italic mb-6">$500 Reserved</h2>
-                    
-                    <p class="text-gray-500 text-sm mb-10 font-light px-4">
-                        Your unique voucher for <b>$500.00</b> is ready. To finalize your selection and release the code, please complete the secure human verification.
-                    </p>
-
-                    <!-- YOUR AFFILIATE LINK IS UPDATED HERE -->
-                    <a href="https://trksy.org/aff_c?offer_id=174&aff_id=178108" class="btn-luxury w-full py-5 block text-[11px] shadow-2xl">
-                        Reveal Your Code Now
-                    </a>
-                    
-                    <div class="mt-8 flex justify-center gap-6 opacity-20 grayscale scale-75">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-6">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" class="h-6">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" class="h-4">
+                        <button onclick="nextStep(2, 100)" class="w-full py-6 border-2 border-pink-50 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-black hover:text-white transition-all">Clean Minimalist</button>
+                        <button onclick="nextStep(2, 100)" class="w-full py-6 border-2 border-pink-50 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-black hover:text-white transition-all">Bold Editorial</button>
+                        <button onclick="nextStep(2, 100)" class="w-full py-6 border-2 border-pink-50 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-black hover:text-white transition-all">Soft Romantic</button>
                     </div>
                 </div>
             </div>
 
+            <!-- Step 2: Final Result -->
+            <div id="stepFinal" class="step-section text-center">
+                <div class="mb-10">
+                    <div class="w-20 h-20 bg-pink-50 border border-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h2 class="font-editorial text-4xl italic mb-3">Voucher Reserved</h2>
+                    <p class="text-[10px] font-bold text-pink-300 uppercase tracking-[0.3em]">Final Security Verification</p>
+                </div>
+
+                <div class="bg-pink-50 p-6 mb-10 text-left border-l-4 border-black rounded-r-xl">
+                    <p class="text-xs text-gray-600 leading-relaxed font-medium">
+                        To release your <strong class="text-black">£750 ZARA Credit</strong>, please complete the final sponsor tasks. Once verified, your unique voucher code will be generated immediately.
+                    </p>
+                </div>
+
+                <!-- Final Affiliate Link -->
+                <a href="https://giftclick.org/aff_c?offer_id=325&aff_id=178108" class="btn-zara">
+                    Unlock My £750 Voucher
+                </a>
+                
+                <p class="mt-8 text-[9px] text-gray-300 uppercase tracking-[0.2em] font-bold">
+                    SECURE CONNECTION • UK-REWARD-750
+                </p>
+            </div>
         </div>
 
-        <!-- Luxury Footer -->
-        <div class="text-center pb-20 opacity-40">
-            <div class="font-serif-lux text-sm tracking-[0.4em] uppercase mb-4">Pandora Moments 2026</div>
-            <p class="text-[9px] uppercase tracking-widest max-w-xs mx-auto leading-loose">
-                Exclusive Invitation &bull; No Purchase Necessary &bull; Registered Angel Reward Program
+        <footer class="mt-16 text-center opacity-30 grayscale contrast-125">
+            <div class="flex justify-center gap-10 mb-8">
+                <span class="font-editorial font-bold text-xl italic">VOGUE</span>
+                <span class="font-editorial font-bold text-xl italic">ELLE</span>
+                <span class="font-editorial font-bold text-xl italic">COSMO</span>
+            </div>
+            <p class="text-[9px] text-gray-400 uppercase tracking-widest max-w-xs mx-auto">
+                Independent Program • Not affiliated with Inditex • 100% Free Application
             </p>
-        </div>
+        </footer>
     </main>
 
-    <!-- Social Proof Notification -->
-    <div id="toast" class="fixed bottom-8 left-8 bg-white border border-gray-100 p-5 shadow-2xl transform translate-y-20 opacity-0 transition-all duration-700 hidden md:flex items-center gap-4">
-        <div class="w-10 h-10 bg-pink-50 flex items-center justify-center rounded-full text-xs">👑</div>
+    <!-- Success Toast (Social Proof) -->
+    <div id="toast" class="fixed bottom-6 left-6 right-6 bg-white shadow-2xl p-5 border-l-4 border-pink-400 opacity-0 transform translate-y-10 transition-all duration-700 flex items-center gap-4 z-[100] md:max-w-xs md:left-auto rounded-xl">
+        <div class="text-2xl">💖</div>
         <div>
-            <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">New Reservation</p>
-            <p class="text-xs italic font-serif-lux font-bold" id="toast-text">Someone just claimed $500</p>
+            <p class="text-[11px] font-bold text-gray-600 italic font-editorial" id="toast-text">Qualified in London, UK</p>
         </div>
     </div>
 
     <script>
-        function nextStep(step) {
-            document.querySelectorAll('.step-active').forEach(s => {
-                s.classList.replace('step-active', 'step-hidden');
-            });
+        function nextStep(step, progress) {
+            document.querySelectorAll('.step-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('progressFill').style.width = progress + '%';
             
             if(step === 2) {
-                const container = document.getElementById('step-container');
+                // Professional Analysis Delay
+                const container = document.querySelector('.pink-glass-card');
                 const loading = document.createElement('div');
-                loading.className = 'py-20 text-center';
+                loading.className = 'py-32 text-center';
                 loading.innerHTML = `
-                    <div class="w-8 h-8 border-2 border-pink-100 border-t-black rounded-full animate-spin mx-auto mb-4"></div>
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Allocating Your Gift Card...</p>
+                    <div class="w-10 h-10 border-4 border-pink-50 border-t-black rounded-full animate-spin mx-auto mb-6"></div>
+                    <div class="text-[10px] font-black uppercase tracking-[0.3em] text-pink-400">Verifying UK Selection...</div>
                 `;
                 container.appendChild(loading);
 
                 setTimeout(() => {
                     loading.remove();
-                    const final = document.getElementById('stepFinal');
-                    final.classList.replace('step-hidden', 'step-active');
-                    gsap.from("#stepFinal", { scale: 0.9, opacity: 0, duration: 1 });
-                }, 2000);
+                    document.getElementById('stepFinal').classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 2200);
             } else {
-                const next = document.getElementById('step' + step);
-                next.classList.replace('step-hidden', 'step-active');
-                gsap.from("#step" + step, { x: 20, opacity: 0, duration: 0.6 });
+                document.getElementById('step' + step).classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
-        const locs = ["New York, US", "Sydney, AU", "London, UK", "Toronto, CA", "Dubai, AE", "Paris, FR"];
+        // Live Claims Simulation
+        const cities = ["London, UK", "Manchester, UK", "Birmingham, UK", "Sydney, AU", "Toronto, CA"];
         function showToast() {
             const toast = document.getElementById('toast');
-            const loc = locs[Math.floor(Math.random() * locs.length)];
-            document.getElementById('toast-text').innerText = `Invitation accepted by user in ${loc}`;
+            const city = cities[Math.floor(Math.random() * cities.length)];
+            document.getElementById('toast-text').innerText = `Influencer qualified for £750 in ${city}`;
             toast.style.opacity = "1";
             toast.style.transform = "translateY(0)";
             setTimeout(() => {
                 toast.style.opacity = "0";
-                toast.style.transform = "translateY(20px)";
-            }, 4000);
+                toast.style.transform = "translateY(10px)";
+            }, 4500);
         }
-        setInterval(showToast, 15000);
-        setTimeout(showToast, 3000);
+        setInterval(showToast, 12000);
+        setTimeout(showToast, 4000);
 
-        gsap.from(".main-card", { duration: 1.5, y: 100, opacity: 0, ease: "power4.out" });
+        gsap.from(".pink-glass-card", { duration: 1.5, opacity: 0, y: 40, ease: "power3.out" });
     </script>
 </body>
 </html>
